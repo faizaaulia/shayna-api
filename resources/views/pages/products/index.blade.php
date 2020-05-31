@@ -31,7 +31,7 @@
                                             <td>${{ $product->price }}</td>
                                             <td>{{ $product->stock }}</td>
                                             <td>
-                                                <a href="{{route('products.show', [$product->id])}}" class="btn btn-sm btn-info"><i class="fa fa-picture-o"></i></a>
+                                                <a href="{{route('products.gallery', [$product->id])}}" class="btn btn-sm btn-info"><i class="fa fa-picture-o"></i></a>
                                                 <a href="{{route('products.edit', [$product->id])}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
                                                 <form action="{{route('products.destroy', [$product->id])}}" method="post" class="d-inline" onsubmit="return confirm('Hapus barang?')">
                                                     @method('delete')
