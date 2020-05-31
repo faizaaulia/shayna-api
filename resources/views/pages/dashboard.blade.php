@@ -14,7 +14,7 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text">Rp. <span class="count">123901212</span></div>
+                                    <div class="stat-text">$<span class="count">{{ $income }}</span></div>
                                     <div class="stat-heading">Penghasilan</div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                             </div>
                             <div class="stat-content">
                                 <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">3435</span></div>
+                                    <div class="stat-text"><span class="count">{{ $sales }}</span></div>
                                     <div class="stat-heading">Penjualan</div>
                                 </div>
                             </div>
@@ -54,81 +54,45 @@
                         </div>
                         <div class="card-body--">
                             <div class="table-stats order-table ov-h">
-                                <table class="table ">
+                                <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="serial">#</th>
-                                            <th>ID</th>
+                                            <th>#</th>
                                             <th>Name</th>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Total</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="serial">1.</td>
-                                            <td> #5469 </td>
-                                            <td>  <span class="name">Louis Stanley</span> </td>
-                                            <td> <span class="product">Uniqlo</span> </td>
-                                            <td><span class="count">1</span></td>
-                                            <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="serial">2.</td>
-                                            <td> #5468 </td>
-                                            <td>  <span class="name">Gregory Dixon</span> </td>
-                                            <td> <span class="product">ZARA</span> </td>
-                                            <td><span class="count">1</span></td>
-                                            <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="serial">3.</td>
-                                            <td> #5467 </td>
-                                            <td>  <span class="name">Catherine Dixon</span> </td>
-                                            <td> <span class="product">H&M</span> </td>
-                                            <td><span class="count">1</span></td>
-                                            <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="serial">4.</td>
-                                            <td> #5466 </td>
-                                            <td>  <span class="name">Mary Silva</span> </td>
-                                            <td> <span class="product">Pull&Bear</span> </td>
-                                            <td><span class="count">1</span></td>
-                                            <td>
-                                                <span class="badge badge-pending">Pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr class=" pb-0">
-                                            <td class="serial">5.</td>
-                                            <td> #5465 </td>
-                                            <td>  <span class="name">Johnny Stephens</span> </td>
-                                            <td> <span class="product">Bershka</span> </td>
-                                            <td><span class="count">1</span></td>
-                                            <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td>
-                                        </tr>
-                                        <tr class=" pb-0">
-                                            <td class="serial">5.</td>
-                                            <td> #5466 </td>
-                                            <td>  <span class="name">Kim Ratchet</span> </td>
-                                            <td> <span class="product">Nama</span> </td>
-                                            <td><span class="count">1</span></td>
-                                            <td>
-                                                <span class="badge badge-complete">Complete</span>
-                                            </td>
-                                        </tr>
+                                        @forelse ($items as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->phone }}</td>
+                                                <td>${{ $item->total }}</td>
+                                                <td>
+                                                    @if ($item->status == 'PENDING')
+                                                        <span class="badge badge-warning">
+                                                    @elseif ($item->status == 'SUCCESS')
+                                                        <span class="badge badge-success">
+                                                    @elseif ($item->status == 'FAILED')
+                                                        <span class="badge badge-danger">
+                                                    @endif
+                                                    {{ $item->status }}
+                                                        </span> 
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="6" class="text-center">Tidak ada data</td>
+                                            </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
-                            </div> <!-- /.table-stats -->
+                            </div>
                         </div>
                     </div> <!-- /.card -->
                 </div>  <!-- /.col-lg-8 -->
@@ -153,3 +117,44 @@
     </div>
     <!-- .animated -->
 @endsection
+
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
+    <script>
+        jQuery(document).ready(function($) {
+            "use strict";
+
+            // Pie chart flotPie1
+            var piedata = [
+                { label: "Pending", data: [[1,{{ $pie['pending'] }}]], color: '#5c6bc0'},
+                { label: "Gagal", data: [[1,{{ $pie['failed'] }}]], color: '#ef5350'},
+                { label: "Sukses", data: [[1,{{ $pie['success'] }}]], color: '#66bb6a'}
+            ];
+
+            $.plot('#flotPie1', piedata, {
+                series: {
+                    pie: {
+                        show: true,
+                        radius: 1,
+                        innerRadius: 0.65,
+                        label: {
+                            show: true,
+                            radius: 2/3,
+                            threshold: 1
+                        },
+                        stroke: {
+                            width: 0
+                        }
+                    }
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true
+                }
+            });
+            // Pie chart flotPie1  End
+        })
+    </script>
+@endpush

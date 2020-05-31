@@ -110,7 +110,7 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
-    public function gallery(Request $request, $id) {
+    public function gallery($id) {
         $product = Product::findOrFail($id);
         $items = ProductGallery::with('product')->where('product_id',$id)->get();
 
