@@ -39,8 +39,8 @@
                         <label class="form-check-label" for="inlineRadio1">Ya</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input @error('is_default') is-invalid @enderror" type="radio" name="is_default" id="inlineRadio1" value="0">
-                        <label class="form-check-label" for="inlineRadio1">Tidak</label>
+                        <input class="form-check-input @error('is_default') is-invalid @enderror" type="radio" name="is_default" id="inlineRadio2" value="0">
+                        <label class="form-check-label" for="inlineRadio2">Tidak</label>
                     </div>
                     @error('is_default')
                         <div class="text-muted">
