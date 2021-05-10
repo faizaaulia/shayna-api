@@ -3,13 +3,13 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <strong>Tambah Foto Barang</strong>
+            <strong>Tambah Foto Produk</strong>
         </div>
         <div class="card-body card-block">
             <form action="{{ route('products-gallery.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="name" class="form-control-label">Nama Barang</label>
+                    <label for="name" class="form-control-label">Nama Produk</label>
                     <select name="product_id" id="product_id" class="form-control @error('product_id') is-invalid @enderror">
                         @foreach ($products as $product)
                             <option value="{{ $product->id }}">{{ $product->name }}</option>
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="type" class="form-control-label">Foto Barang</label>
+                    <label for="type" class="form-control-label">Foto Produk</label>
                     <input type="file" accept="image/*" name="photo" id="photo" value="{{ old('photo') }}" class="form-control @error('photo') is-invalid @enderror">
                     @error('photo')
                         <div class="text-muted">
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Tambah Foto Barang</button>
+                    <button type="submit" class="btn btn-primary btn-block">Tambah Foto Produk</button>
                 </div>
             </form>
         </div>

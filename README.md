@@ -1,79 +1,45 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Shayna API
+CMS and back-end of [Shayna](https://github.com/faizaaulia/shayna "Shayna") App using [Laravel](https://laravel.com/ "Laravel"), that help the online shop Admin to manage their products. This app provide API for the front-end app, with API documentation link in the end of this readme
 
-## About Laravel
+## Installation
+1. Clone this repository `git clone https://github.com/faizaaulia/shayna-api.git` or download the zipped source code
+2. Move into the project directory <br>
+`cd shayna-api`
+3. Install composer dependencies <br>
+`composer install`
+4. Set the .env file <br>
+`cp .env.example .env`
+5. Generate an app encryption key <br>
+`php artisan key:generate`
+6. Create an empty database for our application
+7. Add database information in **.env** file <br>
+Fill in the `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` options to match the credentials of the database you just created
+8. Migrate the database <br>
+`php artisan migrate`
+9. Database seeding <br>
+This will seed the database with dummy (admin user) data for login <br>
+`php artisan db:seed`
+10. Make symbolic link to make files in the storage accessible from the web <br>
+`php artisan storage:link`
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Screenshots
+- Dashboard page
+![dashboard](https://user-images.githubusercontent.com/21327758/117667535-2ad6d100-b1cf-11eb-87d5-377347519432.jpg)
+- Add product page
+![add-product](https://user-images.githubusercontent.com/21327758/117668909-940b1400-b1d0-11eb-98a5-336e5c8bb8a4.jpg)
+- Edit product page
+![edit-product](https://user-images.githubusercontent.com/21327758/117669534-31664800-b1d1-11eb-9203-61cd190c5140.jpg)
+- Add product's photo
+![add-photo](https://user-images.githubusercontent.com/21327758/117669775-77231080-b1d1-11eb-92ed-59efb1d1b24c.jpg)
+- Products' photo
+![gallery](https://user-images.githubusercontent.com/21327758/117670982-91a9b980-b1d2-11eb-9625-bd76a5349e39.jpg)
+- Products page
+![products](https://user-images.githubusercontent.com/21327758/117671424-f9f89b00-b1d2-11eb-9f57-41fbaecfdbf6.jpg)
+- Transactions page
+![transactions](https://user-images.githubusercontent.com/21327758/117672177-ccf8b800-b1d3-11eb-9e46-d4e286172e54.jpg)
+> For now, admin have to **check the transactions manually**, whether the customer has paid the order or not. In the next development **it can be added with payment gateway**, so when the order has paid then admin can process the order immediatly
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## API Documentation
+[Postman API documentation](https://documenter.getpostman.com/view/5188042/SztEaSvM#d641c306-64aa-4efa-a18d-bf351d5891f7 "Postman API documentation")
