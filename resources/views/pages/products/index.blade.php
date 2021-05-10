@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Daftar Barang</h4>
+                        <h4 class="box-title">Daftar Produk</h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -33,7 +33,7 @@
                                             <td>
                                                 <a href="{{route('products.gallery', [$product->id])}}" class="btn btn-sm btn-info"><i class="fa fa-picture-o"></i></a>
                                                 <a href="{{route('products.edit', [$product->id])}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                                <form action="{{route('products.destroy', [$product->id])}}" method="post" class="d-inline" onsubmit="return confirm('Hapus barang?')">
+                                                <form action="{{route('products.destroy', [$product->id])}}" method="post" class="d-inline" onsubmit="return confirm('Hapus produk?')">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
