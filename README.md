@@ -1,9 +1,9 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 # Shayna API
-CMS and back-end of [Shayna](https://github.com/faizaaulia/shayna "Shayna") App using [Laravel](https://laravel.com/ "Laravel"), that help the online shop Admin to manage their products. This app provide API for the front-end app, with API documentation link in the end of this readme
+CMS and back-end of [Shayna](https://github.com/faizaaulia/shayna "Shayna") App using [Laravel](https://laravel.com/ "Laravel"), that help the online shop Admin to manage their products. This app provide API for the front-end app, with API documentation link in the end of this readme.
 
-## Installation
+## Project Setup
 1. Clone this repository `git clone https://github.com/faizaaulia/shayna-api.git` or download the zipped source code
 2. Move into the project directory <br>
 `cd shayna-api`
@@ -25,21 +25,35 @@ This will seed the database with dummy (admin user) data for login <br>
 `php artisan storage:link`
 
 ## Screenshots
-- Dashboard page
+<p align="center"><b>Dashboard Page</b></p>
+
 ![dashboard](https://user-images.githubusercontent.com/21327758/117667535-2ad6d100-b1cf-11eb-87d5-377347519432.jpg)
-- Add product page
+
+<p align="center"><b>Add Product Page</b></p>
+
 ![add-product](https://user-images.githubusercontent.com/21327758/117668909-940b1400-b1d0-11eb-98a5-336e5c8bb8a4.jpg)
-- Edit product page
+
+<p align="center"><b>Edit Product Page</b></p>
+
 ![edit-product](https://user-images.githubusercontent.com/21327758/117669534-31664800-b1d1-11eb-9203-61cd190c5140.jpg)
-- Add product's photo
+
+<p align="center"><b>Add Product's Photo</b></p>
+
 ![add-photo](https://user-images.githubusercontent.com/21327758/117669775-77231080-b1d1-11eb-92ed-59efb1d1b24c.jpg)
-- Products' photo
+
+<p align="center"><b>Products' Photo</b></p>
+
 ![gallery](https://user-images.githubusercontent.com/21327758/117670982-91a9b980-b1d2-11eb-9625-bd76a5349e39.jpg)
-- Products page
+
+<p align="center"><b>Products Page</b></p>
+
 ![products](https://user-images.githubusercontent.com/21327758/117671424-f9f89b00-b1d2-11eb-9f57-41fbaecfdbf6.jpg)
-- Transactions page
+
+<p align="center"><b>Transactions Page</b></p>
+
 ![transactions](https://user-images.githubusercontent.com/21327758/117672177-ccf8b800-b1d3-11eb-9e46-d4e286172e54.jpg)
-> For now, admin have to **check the transactions manually**, whether the customer has paid the order or not. In the next development **it can be added with payment gateway**, so when the order has paid then admin can process the order immediatly
+
+> Currently there is no payment gateway. So admin have to **check the transactions manually**, whether the customer has paid the order or not. In the next development **it can be added with payment gateway and mail notification**, so when the order has paid then admin can process the order immediatly and notify the customer via email.
 
 ## API Documentation
 [Postman API documentation](https://documenter.getpostman.com/view/5188042/SztEaSvM#d641c306-64aa-4efa-a18d-bf351d5891f7 "Postman API documentation")
